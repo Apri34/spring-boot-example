@@ -42,7 +42,6 @@ dockerRun {
     image imageName
     ports '8080:8080'
     clean true
-    daemonize false
 }
 
 java {

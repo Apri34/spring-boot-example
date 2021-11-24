@@ -15,15 +15,5 @@ pipeline {
                 sh './gradlew test'
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                sh './gradlew docker'
-            }
-        }
-        stage('Deploy Docker Image') {
-            steps {
-                sh './gradlew dockerRun'
-            }
-        }
     }
 }

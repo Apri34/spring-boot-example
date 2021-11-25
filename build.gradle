@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-cargo-plugin:2.8.0'
+    }
+}
+
 plugins {
     id 'war'
     id 'java'
@@ -5,6 +15,8 @@ plugins {
     id 'org.springframework.boot' version '2.5.0'
     id 'pl.allegro.tech.build.axion-release' version '1.13.2'
 }
+
+apply plugin: 'com.bmuschko.cargo'
 
 repositories {
     mavenCentral()
@@ -31,5 +43,22 @@ test {
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(16)
+    }
+}
+
+cargo {
+    containerId = 'tomcat9x'
+    port = 8080
+
+    remote {
+        hostname = '147.182.224.233'
+        username = 'admin'
+        password = 'OperaOpera123'
+    }
+
+    local {
+        homeDir = file('/opt/tomcat/apache-tomcat-9.0.55')
+        outputFile = file('build/output.log')
+        startStopTimeout = 60000
     }
 }

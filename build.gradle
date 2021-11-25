@@ -20,7 +20,6 @@ apply plugin: 'com.bmuschko.cargo'
 
 war {
     enabled = true
-    archiveClassifier = ''
 }
 
 repositories {

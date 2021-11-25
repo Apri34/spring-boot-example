@@ -5,6 +5,11 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
+        stage('Clean') {
+            steps {
+                sh './gradlew clean'
+            }
+        }
         stage('Build') {
             steps {
                 sh './gradlew war'
@@ -13,6 +18,11 @@ pipeline {
         stage('Test') {
             steps {
                 sh './gradlew test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh './gradlew cargoDeployRemote'
             }
         }
     }

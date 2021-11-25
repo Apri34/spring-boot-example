@@ -55,10 +55,4 @@ cargo {
         username = 'admin'
         password = 'OperaOpera123'
     }
-
-    local {
-        homeDir = file('/opt/tomcat/apache-tomcat-9.0.55')
-        outputFile = file('build/output.log')
-        startStopTimeout = 60000
-    }
 }

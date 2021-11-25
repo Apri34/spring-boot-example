@@ -51,7 +51,7 @@ cargo {
     port = 8080
 
     remote {
-        hostname = '147.182.224.233'
+        hostname = 'localhost'
         username = 'admin'
         password = 'OperaOpera123'
     }
